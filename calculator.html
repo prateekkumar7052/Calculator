@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    input {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    #result{
+      height: 30px;
+      margin-left: 2px;
+      width: 205px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>  Calculator</h2>
+  <table>
+    <input type="text" readonly id="result">
+    <!-- <tr>
+      <td colspan="2"> -->
+        <!-- <input type="text" id="result" readonly /> -->
+      <!-- </td> -->
+    </tr>
+    <tr>
+      <td><input type="button" value="1" onclick="appendToResult('1')"></td>
+      <td><input type="button" value="2" onclick="appendToResult('2')"></td>
+      <td><input type="button" value="3" onclick="appendToResult('3')"></td>
+      <td><input type="button" value="/" onclick="appendToResult('/')"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="4" onclick="appendToResult('4')"></td>
+      <td><input type="button" value="5" onclick="appendToResult('5')"></td>
+      <td><input type="button" value="6" onclick="appendToResult('6')"></td>
+      <td><input type="button" value="-" onclick="appendToResult('-')"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="7" onclick="appendToResult('7')"></td>
+      <td><input type="button" value="8" onclick="appendToResult('8')"></td>
+      <td><input type="button" value="9" onclick="appendToResult('9')"></td>
+      <td><input type="button" value="+" onclick="appendToResult('+')"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="0" onclick="appendToResult('0')"></td>
+      <td><input type="button" value="." onclick="appendToResult('.')"></td>
+      <td><input type="button" value="=" onclick="calculateResult()"></td>
+      <td><input type="button" value="C" onclick="clearResult()"></td>
+    </tr>
+  </table>
+
+  <script>
+    let result = document.getElementById("result");
+    function appendToResult(value) {
+      result.value += value;
+    }
+
+    function calculateResult() {
+      try {
+        result.value = eval((result.value)||NULL);
+      } catch (error) {
+        result.value = error;
+        setTimeout(()=>{
+          result.value = '';
+        } , 300);
+      }
+    }
+
+    function clearResult() {
+      result.value = '';
+    }
+
+    document.addEventListener("keydown",(e)=>{
+        let key = e.key;
+        
+        switch(key){
+          case "0":
+          case "1":
+          case "2":
+          case "3":
+          case "4":
+          case "5":
+          case "6":
+          case "7":
+          case "8":
+          case "9": appendToResult(key);
+          break;
+          case "+":
+          case "-":
+          case "*":
+          case "/": 
+          appendToResult(key);
+          break;
+          case "Backspace": clearResult();
+          break; 
+          case "Enter": calculateResult()
+          break;
+          default: break;
+
+
+        }
+    })
+
+  </script>
+
+</body>
