@@ -43,10 +43,15 @@
           break;
           case "Backspace": clearResult();
           break; 
-          case "Enter": calculateResult()
+          case "Enter": calculateResult();
+          break;
+          case "%": calculateMod();
+          break;
+          case "log": calculateLog();
           break;
           default: break;
 
 
         }
-    })
+      }
+    )
