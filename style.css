@@ -9,3 +9,15 @@ input {
   margin-left: 2px;
   width: 205px;
 }
+.btn{
+  border-radius: 50%;
+}
+.res{
+  border-radius: 10px;
+}
+body{
+  background-color: rgb(39, 18, 18);
+}
+h2{
+  color: white;
+}
