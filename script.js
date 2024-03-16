@@ -32,6 +32,7 @@
           case "6":
           case "7":
           case "8":
+          case ".":
           case "9": appendToResult(key);
           break;
           case "+":
